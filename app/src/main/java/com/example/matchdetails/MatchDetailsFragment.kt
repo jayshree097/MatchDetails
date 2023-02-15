@@ -60,15 +60,6 @@ class MatchDetailsFragment : Fragment(), View.OnClickListener {
     }
 
 
-    /*  private fun initAdapter(data:ResponseMatchInfo){
-
-          matchListAdapter= MatchDetailsAdapter(requireContext())
-          _matchDetailsFragment?.rvMatchDetails?.adapter=matchListAdapter
-          Log.d("ADAPTER", "initAdapter: "+matchListAdapter)
-
-
-      }*/
-
     override fun onClick(view: View?) {
 
         when(view?.id){

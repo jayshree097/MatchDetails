@@ -31,7 +31,6 @@ class MatchDetailsAdapter (var context:Context):
             mList?.get(position).let { model ->
 
                 holder.b.tvTeamA.text=model?.matchdetail?.series?.tourName
-
             }
         }
     }

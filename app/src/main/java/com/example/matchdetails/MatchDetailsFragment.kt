@@ -1,5 +1,6 @@
 package com.example.matchdetails
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,29 +35,39 @@ class MatchDetailsFragment : Fragment(), View.OnClickListener {
 
 
     private fun initComponent(){
-//        _matchDetailsFragment?.tvDetails?.setOnClickListener(this)
-
-
         matchDetailsViewModel=ViewModelProvider(requireActivity()).get(MatchViewModel::class.java)
+
+
 
         matchDetailsViewModel.getApiData()
 
 
         matchDetailsViewModel.matchDataList.observe(requireActivity()) {
           initAdapter(it)
+
+            Log.d("RESPONSE", "initComponent: "+it)
         }
 
 
     }
 
-
-    private fun initAdapter(data:ResponseMatchInfo){
+    private fun initAdapter(it: ResponseMatchInfo?) {
 
         matchListAdapter= MatchDetailsAdapter(requireContext())
         _matchDetailsFragment?.rvMatchDetails?.adapter=matchListAdapter
-
+        Log.d("ADAPTER", "initAdapter: "+matchListAdapter)
 
     }
+
+
+    /*  private fun initAdapter(data:ResponseMatchInfo){
+
+          matchListAdapter= MatchDetailsAdapter(requireContext())
+          _matchDetailsFragment?.rvMatchDetails?.adapter=matchListAdapter
+          Log.d("ADAPTER", "initAdapter: "+matchListAdapter)
+
+
+      }*/
 
     override fun onClick(view: View?) {
 

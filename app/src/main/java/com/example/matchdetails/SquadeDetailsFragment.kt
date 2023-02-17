@@ -1,16 +1,17 @@
 package com.example.matchdetails
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.matchdetails.databinding.FragmentMatchDetailsBinding
 import com.example.matchdetails.databinding.FragmentSquadeDetailsBinding
-import com.example.matchdetails.viewModel.MatchViewModel
+import com.example.matchdetails.model.TeamList
 import com.example.matchdetails.viewModel.TeamViewModel
+import org.json.JSONArray
+import org.json.JSONObject
+
 
 class SquadeDetailsFragment : Fragment() {
 
@@ -37,7 +38,7 @@ class SquadeDetailsFragment : Fragment() {
         teamViewModel.getApiData()
 
         teamViewModel.matchDataList.observe(requireActivity()) {
-//            _squadDetailsFragment?.tvCountry?.text=it.teams?.
+           extractData(it)
 
         }
 
@@ -45,5 +46,13 @@ class SquadeDetailsFragment : Fragment() {
 
     }
 
+    private fun extractData(it: TeamList?) {
+        var response = it?.teams
+        val dates = response?.keys
+        val codes = response?.values
+        val rates= response?.values
+
+        _squadDetailsFragment?.tvsqudDetails?.text= codes.toString()
+    }
 
 }

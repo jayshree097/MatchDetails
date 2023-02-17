@@ -3,8 +3,7 @@ package com.example.matchdetails.viewModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.matchdetails.TeamResponse
-import com.example.matchdetails.model.ResponseMatchInfo
+import com.example.matchdetails.model.TeamList
 import com.example.matchdetails.retrofitApi.APIInterface
 import com.example.matchdetails.retrofitApi.ApiClient
 import retrofit2.Call
@@ -13,24 +12,24 @@ import retrofit2.Response
 
 class TeamViewModel: ViewModel() {
 
-    var matchDataList= MutableLiveData<TeamResponse>()
+    var matchDataList= MutableLiveData<TeamList>()
 
 
     fun getApiData(){
         val retrofitService= ApiClient.getRetrofitInstance().create(APIInterface::class.java)
-        retrofitService.getTeamDetails().enqueue(object : Callback<TeamResponse> {
+        retrofitService.getTeamDetails().enqueue(object : Callback<TeamList> {
             override fun onResponse(
-                call: Call<TeamResponse>,
-                response: Response<TeamResponse>
+                call: Call<TeamList>,
+                response: Response<TeamList>
             ) {
 
                 matchDataList.value=response.body()
-                Log.d("MYTAG", "onResponse: "+response.body().toString())
+                Log.d("MYTAG", "onTeamResponse: "+response.body().toString())
             }
 
-            override fun onFailure(call: Call<TeamResponse>, t: Throwable) {
+            override fun onFailure(call: Call<TeamList>, t: Throwable) {
 
-                Log.d("MYTAG", "onFailure: "+t.toString())
+                Log.d("MYTAG", "onTeamFailure: "+t.toString())
             }
 
         })

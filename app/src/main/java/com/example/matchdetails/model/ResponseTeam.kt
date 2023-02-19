@@ -6,7 +6,7 @@ data class ResponseTeam (
     val nameShort: String? = null,
 
     @field:SerializedName("Name_Full")
-    val nameFull: String? = null,
+    var nameFull: String? = null,
 
     @field:SerializedName("Players")
     val teams: Map<String, PlayerList>

@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.matchdetails.Adapter.PlayerListAdapter
 import com.example.matchdetails.databinding.FragmentSquadeDetailsBinding
 import com.example.matchdetails.model.PlayerList
-import com.example.matchdetails.model.ResponseTeam
+
 import com.example.matchdetails.model.TeamList
 import com.example.matchdetails.viewModel.PlayerViewModel
 import com.example.matchdetails.viewModel.TeamViewModel
@@ -54,15 +54,15 @@ class SquadeDetailsFragment : Fragment(),PlayerListAdapter.PalyerDetailsCallback
 
         playerViewModel.playerDataList.observe(requireActivity()) {
 //            extractData(it)
-//            playerListAdapter?.addList(it as ArrayList<PlayerList>)
-            if (it.nameFull?.isNotEmpty()==true){
+
+            playerListAdapter?.addList(it as ArrayList<PlayerList>)
+
                 playerListAdapter= PlayerListAdapter(requireContext(),this)
                 _squadDetailsFragment?.recyclerView?.adapter=playerListAdapter
-            }
+
 
 
         }
-
 
     }
 
@@ -78,7 +78,7 @@ class SquadeDetailsFragment : Fragment(),PlayerListAdapter.PalyerDetailsCallback
 //        _squadDetailsFragment?.tvCountry1?.text= codes?.iterator()?.next()?.nameFull?.g
 
 //        _squadDetailsFragment?.tvPlayer1?.text= codes?.iterator()?.next()?.teams?.values?.iterator()?.next()?.nameFull
-       _squadDetailsFragment?.tvPlayer1?.text= codes?.first()?.teams?.values?.toString()
+      _squadDetailsFragment?.tvPlayer1?.text= codes?.first()?.teams?.values?.toString()
 
        /* playerListAdapter?.addList(it as ArrayList<ResponseTeam>)
          if (it?.teams?.values?.iterator()?.next()?.teams?.values?.isNotEmpty()==true){

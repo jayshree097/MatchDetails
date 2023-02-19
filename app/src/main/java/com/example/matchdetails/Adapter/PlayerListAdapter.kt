@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.matchdetails.databinding.PlayerNameLayoutBinding
 import com.example.matchdetails.model.PlayerList
-import com.example.matchdetails.model.ResponseTeam
 
 class PlayerListAdapter (
     val context: Context, var playerDetailsCallback: PalyerDetailsCallback,

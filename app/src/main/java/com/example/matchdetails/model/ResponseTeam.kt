@@ -9,7 +9,8 @@ data class ResponseTeam (
     var nameFull: String? = null,
 
     @field:SerializedName("Players")
-    val teams: Map<String, PlayerList>
+    val teams: Map<String, PlayerList>,
+
 )
 
 

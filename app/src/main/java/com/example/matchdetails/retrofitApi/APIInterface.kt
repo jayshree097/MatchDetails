@@ -1,6 +1,7 @@
 package com.example.matchdetails.retrofitApi
 import com.example.matchdetails.model.PlayerList
 import com.example.matchdetails.model.ResponseMatchInfo
+import com.example.matchdetails.model.SinglePlayerList
 import com.example.matchdetails.model.TeamList
 import retrofit2.Call
 import retrofit2.http.GET

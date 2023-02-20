@@ -55,11 +55,11 @@ class SquadeDetailsFragment : Fragment(),PlayerListAdapter.PalyerDetailsCallback
         playerViewModel.playerDataList.observe(requireActivity()) {
 //            extractData(it)
 
-            playerListAdapter?.addList(it as ArrayList<PlayerList>)
+           /* playerListAdapter?.addList(it as ArrayList<PlayerList>)
 
                 playerListAdapter= PlayerListAdapter(requireContext(),this)
                 _squadDetailsFragment?.recyclerView?.adapter=playerListAdapter
-
+*/
 
 
         }
@@ -80,14 +80,7 @@ class SquadeDetailsFragment : Fragment(),PlayerListAdapter.PalyerDetailsCallback
 //        _squadDetailsFragment?.tvPlayer1?.text= codes?.iterator()?.next()?.teams?.values?.iterator()?.next()?.nameFull
       _squadDetailsFragment?.tvPlayer1?.text= codes?.first()?.teams?.values?.toString()
 
-       /* playerListAdapter?.addList(it as ArrayList<ResponseTeam>)
-         if (it?.teams?.values?.iterator()?.next()?.teams?.values?.isNotEmpty()==true){
-
-             playerListAdapter= PlayerListAdapter(requireContext(),this)
-             _squadDetailsFragment?.recyclerView?.adapter=playerListAdapter
-         }
-*/
-        _squadDetailsFragment?.tvPlayer2?.text= codes?.last()?.teams?.values?.minus("[PlayerList(nameFull=").toString()
+        _squadDetailsFragment?.tvPlayer2?.text= codes?.last()?.teams?.values?.toString()
 
     }
 

@@ -15,11 +15,6 @@ class MatchDetailsFragment : Fragment(), View.OnClickListener {
     private var _matchDetailsFragment: FragmentMatchDetailsBinding? = null
     private lateinit var matchDetailsViewModel:MatchViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,19 +26,13 @@ class MatchDetailsFragment : Fragment(), View.OnClickListener {
         return _matchDetailsFragment?.root
     }
 
-
-
     private fun initComponent(){
         _matchDetailsFragment?.clSuadDetails?.setOnClickListener(this)
-
-
-
         matchDetailsViewModel=ViewModelProvider(requireActivity()).get(MatchViewModel::class.java)
         matchDetailsViewModel.getApiData()
 
 
         matchDetailsViewModel.matchDataList.observe(requireActivity()) {
-//          initAdapter(it)
              _matchDetailsFragment?.tvTeamName?.text=it.matchdetail?.series?.name
             _matchDetailsFragment?.tvDate1?.text=it.matchdetail?.match?.date
             _matchDetailsFragment?.tvTime1?.text=it.matchdetail?.match?.time
@@ -58,9 +47,7 @@ class MatchDetailsFragment : Fragment(), View.OnClickListener {
 
         when(view?.id){
             R.id.cl_suad_details ->{
-
                 findNavController().navigate(R.id.action_matchDetailsFragment_to_squadeDetailsFragment)
-               /* findNavController().navigate(R.id.action_matchDetailsFragment_to_squadeDetailsFragment)*/
             }
         }
     }
